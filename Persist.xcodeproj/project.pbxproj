@@ -14,6 +14,8 @@
 		3D75647D27F7B1970063F84E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D75647C27F7B1970063F84E /* Assets.xcassets */; };
 		3D75648027F7B1970063F84E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D75647E27F7B1970063F84E /* LaunchScreen.storyboard */; };
 		3D75648827F7B6AC0063F84E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D75648727F7B6AC0063F84E /* DataManager.swift */; };
+		3D75648B27F7D7E30063F84E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D75648A27F7D7E30063F84E /* CoreData.framework */; };
+		3D75648E27F7D85B0063F84E /* Persist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D75648C27F7D85B0063F84E /* Persist.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		3D75647F27F7B1970063F84E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D75648127F7B1970063F84E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D75648727F7B6AC0063F84E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		3D75648A27F7D7E30063F84E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3D75648D27F7D85B0063F84E /* Persist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Persist.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D75648B27F7D7E30063F84E /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,7 @@
 			children = (
 				3D75647227F7B1950063F84E /* Persist */,
 				3D75647127F7B1950063F84E /* Products */,
+				3D75648927F7D7E30063F84E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,8 +72,17 @@
 				3D75647E27F7B1970063F84E /* LaunchScreen.storyboard */,
 				3D75648127F7B1970063F84E /* Info.plist */,
 				3D75648727F7B6AC0063F84E /* DataManager.swift */,
+				3D75648C27F7D85B0063F84E /* Persist.xcdatamodeld */,
 			);
 			path = Persist;
+			sourceTree = "<group>";
+		};
+		3D75648927F7D7E30063F84E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D75648A27F7D7E30063F84E /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +160,7 @@
 				3D75648827F7B6AC0063F84E /* DataManager.swift in Sources */,
 				3D75647427F7B1950063F84E /* AppDelegate.swift in Sources */,
 				3D75647627F7B1950063F84E /* SceneDelegate.swift in Sources */,
+				3D75648E27F7D85B0063F84E /* Persist.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +376,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3D75648C27F7D85B0063F84E /* Persist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D75648D27F7D85B0063F84E /* Persist.xcdatamodel */,
+			);
+			currentVersion = 3D75648D27F7D85B0063F84E /* Persist.xcdatamodel */;
+			path = Persist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3D75646827F7B1950063F84E /* Project object */;
 }

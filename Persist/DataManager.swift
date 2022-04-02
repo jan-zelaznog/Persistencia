@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum PersistenceType:Int {
     case userDefaults
@@ -14,6 +15,50 @@ enum PersistenceType:Int {
 }
 
 class DataManager: NSObject {
+    lazy var managedObjectModel:NSManagedObjectModel? = {
+        let modelURL = Bundle.main.url(forResource:"Persist", withExtension: "momd")
+        var model = NSManagedObjectModel(contentsOf: modelURL!)
+        return model
+    }()
+    
+    lazy var persistentStore:NSPersistentStoreCoordinator? = {
+        let model = self.managedObjectModel
+        if model == nil {
+            return nil
+        }
+        let persist = NSPersistentStoreCoordinator(managedObjectModel: model!)
+        let documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let urlDeLaBD = URL(fileURLWithPath:documents + "/" + "Persist" + ".sqlite")
+        do {
+            let opcionesDePersistencia = [NSMigratePersistentStoresAutomaticallyOption:true, NSInferMappingModelAutomaticallyOption:true]
+            try persist.addPersistentStore(ofType: NSSQLiteStoreType, configurationName:nil, at:urlDeLaBD, options:opcionesDePersistencia)
+        }
+        catch {
+            print ("no se puede abrir la base de datos")
+            // abort() // es muy dramático...
+            exit(666)
+        }
+        return persist
+    }()
+    
+    lazy var managedObjectContext:NSManagedObjectContext? = {
+        var moc: NSManagedObjectContext?
+        /*if #available(iOS 10.0, *){
+            // Si es iOS 10 o posterior, los objetos NSManagedObjectModel y NSPersistentStoreCoordinator no son instanciados. En su lugar se instancia el objeto NSPersistentContainer que tiene un NSManagedObjectContext integrado, en su propiedad viewContext
+            moc = self.persistentContainer.viewContext
+        }
+        else{ */
+            // Si es iOS 9 o anterior, se deben instanciar los objetos NSManagedObjectModel y NSPersistentStoreCoordinator
+            let persistence = self.persistentStore
+            if persistence == nil {
+                return nil
+            }
+            moc = NSManagedObjectContext(concurrencyType:.privateQueueConcurrencyType)
+            moc?.persistentStoreCoordinator = persistence
+        //}
+        return moc
+    }()
+    
     /********** IMPLEMENTACION DEL PATRÓN SINGLETON  ********/
     // se instancía la instancia única que va a ser compartida durante toda la aplicación
     static let instance = DataManager()
@@ -38,8 +83,41 @@ class DataManager: NSObject {
         else {
             resultado = guardaEnJSON(llave, valor:valor)
         }
-        
+        guardaEnLog(llave, valor, tipo)
         return resultado
+    }
+    
+    func obtenerLog() -> [Log] {
+        // SELECT * FROM Log
+        var resultset = [Log]()
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Log")
+        do {
+            let tmp = try managedObjectContext!.fetch(request)
+            resultset = tmp as! [Log]
+        }
+        catch {
+            print ("fallo el request \(error.localizedDescription)")
+        }
+        return resultset
+    }
+    
+    func guardaEnLog(_ llave:String, _ valor:String, _ tipo: PersistenceType ) {
+        // creamos un nuevo objeto de tipo "Log"
+        if let entidad = NSEntityDescription.entity(forEntityName:"Log", in:managedObjectContext!) {
+            let unLog = NSManagedObject(entity: entidad, insertInto: managedObjectContext!) as! Log
+            // asignamos sus propiedades
+            unLog.llave = llave
+            unLog.valor = valor
+            unLog.tipo = Int16(tipo.rawValue)
+            unLog.tms = Date()
+            // guardamos el objeto
+            do {
+                try managedObjectContext?.save()
+            }
+            catch {
+                print ("No se puede guardar a la BD \(error.localizedDescription)")
+            }
+        }
     }
     
     func guardaEnPL (_ llave:String, valor:String) -> Bool {

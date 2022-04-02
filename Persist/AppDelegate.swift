@@ -18,11 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Mostrar todas las llaves guardadas en UserDefaults
         let ud = UserDefaults.standard
         let diccionarioNativo = ud.dictionaryRepresentation()
+        /*
         for (llave, _ ) in diccionarioNativo {
             let valor = ud.value(forKey: llave) ?? ""
             print ("\(llave) = \(valor)")
         }
-        
+         */
+        print ("contenido de la entity Log: ")
+        print (DataManager.instance.obtenerLog())
         return true
     }
 
