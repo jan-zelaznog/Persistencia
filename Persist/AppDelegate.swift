@@ -14,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Mostrar todas las llaves guardadas en UserDefaults
+        let ud = UserDefaults.standard
+        let diccionarioNativo = ud.dictionaryRepresentation()
+        for (llave, _ ) in diccionarioNativo {
+            let valor = ud.value(forKey: llave) ?? ""
+            print ("\(llave) = \(valor)")
+        }
+        
         return true
     }
 
