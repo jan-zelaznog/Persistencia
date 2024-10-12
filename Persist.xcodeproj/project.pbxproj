@@ -16,6 +16,7 @@
 		3D75648827F7B6AC0063F84E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D75648727F7B6AC0063F84E /* DataManager.swift */; };
 		3D75648B27F7D7E30063F84E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D75648A27F7D7E30063F84E /* CoreData.framework */; };
 		3D75648E27F7D85B0063F84E /* Persist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D75648C27F7D85B0063F84E /* Persist.xcdatamodeld */; };
+		3D75649027F7F0570063F84E /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D75648F27F7F0570063F84E /* LogTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3D75648727F7B6AC0063F84E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		3D75648A27F7D7E30063F84E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3D75648D27F7D85B0063F84E /* Persist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Persist.xcdatamodel; sourceTree = "<group>"; };
+		3D75648F27F7F0570063F84E /* LogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				3D75648127F7B1970063F84E /* Info.plist */,
 				3D75648727F7B6AC0063F84E /* DataManager.swift */,
 				3D75648C27F7D85B0063F84E /* Persist.xcdatamodeld */,
+				3D75648F27F7F0570063F84E /* LogTableViewController.swift */,
 			);
 			path = Persist;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D75649027F7F0570063F84E /* LogTableViewController.swift in Sources */,
 				3D75647827F7B1950063F84E /* ViewController.swift in Sources */,
 				3D75648827F7B6AC0063F84E /* DataManager.swift in Sources */,
 				3D75647427F7B1950063F84E /* AppDelegate.swift in Sources */,

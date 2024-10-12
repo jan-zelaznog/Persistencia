@@ -193,16 +193,16 @@
             </objects>
             <point key="canvasLocation" x="969" y="118"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Log Table View Controller-->
         <scene sceneID="qgY-eT-BWA">
             <objects>
-                <tableViewController id="13X-kD-Oyg" sceneMemberID="viewController">
+                <tableViewController id="13X-kD-Oyg" customClass="LogTableViewController" customModule="Persist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="i4u-2P-NFn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="xns-K8-kTQ" detailTextLabel="iHa-mA-Uyz" style="IBUITableViewCellStyleSubtitle" id="qze-mT-Z8x">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="logCell" textLabel="xns-K8-kTQ" detailTextLabel="iHa-mA-Uyz" style="IBUITableViewCellStyleSubtitle" id="qze-mT-Z8x">
                                 <rect key="frame" x="0.0" y="44.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qze-mT-Z8x" id="Eqw-0k-2cR">
